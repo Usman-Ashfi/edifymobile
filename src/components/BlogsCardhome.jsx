@@ -3,7 +3,7 @@ import React from "react";
 
 const BlogsCard = (props) => {
   return (
-    <View className="w-screen">
+    <View className="w-[80vw]">
       <View className="overflow-hidden rounded-md border border-black/10">
         <Image
           className="w-full h-auto  "

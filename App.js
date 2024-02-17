@@ -1,51 +1,31 @@
 import { NavigationContainer } from "@react-navigation/native";
-import News from "./src/screens/News";
-import Blogs from "./src/screens/Blogs";
-import Home from "./src/screens/Home";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { FontAwesome5, AntDesign } from "@expo/vector-icons";
-
-const Drawer = createDrawerNavigator();
+import Tabs from "./Tabs";
+import { useEffect, useState } from "react";
+import { Image, View } from "react-native";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (loading) {
+    return (
+      <View className="w-full h-full flex justify-center items-center bg-black">
+        <Image
+          source={require("./assets/splash.gif")}
+          className="h-1/2 w-1/2  object-cover"
+        />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen
-          options={{
-            title: "Discovery",
-            drawerIcon: ({ focused, size }) => (
-              <AntDesign name="home" size={24} color="black" />
-            ),
-            headerStyle: {
-              backgroundColor: "rgb(71 85 105)",
-            },
-            headerTintColor: "#fff",
-          }}
-          name="Home"
-          component={Home}
-        />
-        <Drawer.Screen
-          options={{
-            title: "News",
-            drawerIcon: ({ focused, size }) => (
-              <FontAwesome5 name="newspaper" size={24} color="black" />
-            ),
-          }}
-          name="News"
-          component={News}
-        />
-        <Drawer.Screen
-          options={{
-            title: "Blogs",
-            drawerIcon: ({ focused, size }) => (
-              <FontAwesome5 name="blog" size={24} color="black" />
-            ),
-          }}
-          name="Blogs"
-          component={Blogs}
-        />
-      </Drawer.Navigator>
+      <Tabs />
     </NavigationContainer>
   );
 }

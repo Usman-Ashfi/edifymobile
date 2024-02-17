@@ -8,13 +8,13 @@ const Profile = () => {
   const [name, setName] = React.useState([]);
   async function blogsget() {
     const blog = await axios.get("https://u-shop-liart.vercel.app/api/get-all-product");
-    console.log(blog.data);
     setName(blog.data?.message?.ProductData)
   }
   useEffect(()=>{
     blogsget()
   },[])
   var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  
   return (
     <ScrollView>
       <View className="p-4 bg-white">
