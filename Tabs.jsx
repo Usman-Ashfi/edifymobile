@@ -31,7 +31,7 @@ const Tabs = () => {
         tabBarIcon: ({ color }) => screenOptions(route, color),
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: "white",
         unmountOnBlur: true,
         tabBarStyle: {
           position: "absolute",
@@ -39,7 +39,7 @@ const Tabs = () => {
           left: 20,
           right: 20,
           elevation: 0,
-          backgroundColor: "white",
+          backgroundColor: "black",
           borderRadius: 50,
           height: 50,
         },

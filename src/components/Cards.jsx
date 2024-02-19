@@ -2,7 +2,6 @@ import { View, Text, Image, ImageBackground } from "react-native";
 import React from "react";
 
 const Cards = ({ title, images }) => {
-  console.log(images);
   return (
     <View className="relative flex flex-row items-center w-full rounded-md overflow-hidden my-2">
       <Image
